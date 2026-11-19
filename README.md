@@ -682,12 +682,6 @@ All variables live in `.env` at the project root:
 
 ---
 
-## 🤝 Contributing
-
-Please open an issue before making major changes. Small fixes and new features are welcome.
-
-When adding new security features, follow the same pattern as the existing ones in this README:
-- List the source file(s).
 - Add a dedicated demo step in `Demo Step 8`.
 - Add tests in `tests/`.
 - Verify with `npm test` (all new test count toward the 21/21 badge).
