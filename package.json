@@ -1,0 +1,42 @@
+{
+  "name": "dronegrid",
+  "version": "1.0.0",
+  "description": "Urban Autonomous Drone Logistics & Grid Management — polyglot-persistence DBMS (PostgreSQL + MongoDB)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "node --test tests/*.test.js",
+    "simulator": "node --env-file=.env simulator/simulator.js",
+    "mongo:seed": "node db/mongo/seed.js",
+    "mongo:agg": "node db/mongo/aggregations.js",
+    "docs:security": "node docs/security.js"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "pg": "8.11.3",
+    "mongodb": "6.3.0",
+    "bcryptjs": "2.4.3",
+    "jsonwebtoken": "9.0.2",
+    "zod": "3.22.4",
+    "leaflet": "1.9.4",
+    "react-leaflet": "4.2.1",
+    "recharts": "2.10.3",
+    "chart.js": "4.4.1",
+    "react-chartjs-2": "5.3.1",
+    "uuid": "9.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.16",
+    "postcss": "8.4.32",
+    "tailwindcss": "3.4.0"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}

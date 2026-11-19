@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+build/
+dist/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.log
+*.err
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# Python (report builder / helpers)
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+
+# Temporary report build artifacts
+DroneGrid_staging.docx
+DroneGrid_New.docx
+sample_assets/
+
+# Verification / inspection dumps
+verify_out.txt
+verify_staging.txt
+verify_final.txt
+inspect_full_out.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Misc
+*.tgz
+.cache/

@@ -1,0 +1,136 @@
+# =============================================================================
+# Urban Drone Logistics & Grid Management — Project Requirements
+# =============================================================================
+# This file lists all software, services, and dependencies required to run
+# the Drone Grid DBMS project end-to-end.
+#
+# Sections:
+#   1. System-level (OS-level) requirements
+#   2. Container / Service requirements (Docker)
+#   3. Node.js / npm packages (from package.json)
+#   4. Database client tools (optional but recommended)
+#   5. Verification commands
+# =============================================================================
+
+
+# =============================================================================
+# 1. SYSTEM-LEVEL REQUIREMENTS (install on host OS)
+# =============================================================================
+
+# Operating System: Windows 10/11, macOS, or Linux
+#   - This project was developed and tested on Windows 11
+
+# Node.js (LTS)
+#   - Required: >= 18.17.0
+#   - Download: https://nodejs.org/
+#   - Verify: node --version   (should print v18.x.x or higher)
+#   - Verify: npm --version    (should print 9.x.x or higher)
+
+# Docker Desktop (includes Docker Engine + Docker Compose v2)
+#   - Required: Docker 20+, Docker Compose v2
+#   - Download: https://www.docker.com/products/docker-desktop/
+#   - Verify: docker --version
+#   - Verify: docker compose version
+
+# Git (optional, for version control)
+#   - Download: https://git-scm.com/
+#   - Verify: git --version
+
+
+# =============================================================================
+# 2. CONTAINER / SERVICE REQUIREMENTS (managed by Docker Compose)
+# =============================================================================
+
+# These services are launched by `docker compose up -d postgres mongo`.
+# You do NOT install them directly — Docker Compose pulls and runs them.
+
+# Service: PostgreSQL
+#   - Image: postgres:16
+#   - Port: 5432 (mapped to host)
+#   - Container name: dronegrid-db
+#   - Healthcheck: pg_isready
+
+# Service: MongoDB
+#   - Image: mongo:7
+#   - Port: 27017 (mapped to host)
+#   - Container name: dronegrid-mongo
+#   - Healthcheck: mongosh --eval "db.adminCommand('ping')"
+
+# Service: Next.js App (optional, via Docker)
+#   - Build: . (Dockerfile in project root)
+#   - Port: 3000 (mapped to host)
+#   - Container name: dronegrid-app
+#   - Note: The app is typically run locally with `npm run dev`
+#           rather than inside Docker for development.
+
+
+# =============================================================================
+# 3. NODE.JS / NPM PACKAGES (from package.json)
+# =============================================================================
+
+# These are installed automatically by `npm install`. Listed here for reference.
+
+# Runtime dependencies:
+#   next:              14.2.5   (App Router, Route Handlers)
+#   react:             18.3.1
+#   react-dom:         18.3.1
+#   pg:                8.11.3   (PostgreSQL client for Node.js)
+#   mongodb:           6.3.0    (MongoDB driver for Node.js)
+#   bcryptjs:          2.4.3    (Password hashing)
+#   jsonwebtoken:      9.0.2    (JWT authentication)
+#   zod:               3.22.4   (Runtime validation schemas)
+#   leaflet:           1.9.4    (Interactive maps)
+#   react-leaflet:     4.2.1    (Leaflet React bindings)
+#   recharts:          2.10.3   (Charting library)
+#   chart.js:          4.4.1    (Charting library)
+#   react-chartjs-2:   5.3.1    (Chart.js React bindings)
+#   uuid:              9.0.0    (UUID generation)
+
+# Dev dependencies:
+#   autoprefixer:      10.4.16
+#   postcss:           8.4.32
+#   tailwindcss:       3.4.0    (Utility-first CSS framework)
+
+# Install all with:
+#   npm install
+
+
+# =============================================================================
+# 4. DATABASE CLIENT TOOLS (optional, for manual inspection)
+# =============================================================================
+
+# psql — PostgreSQL command-line client
+#   - Windows: Installed with PostgreSQL (e.g. C:\Program Files\PostgreSQL\18\bin\psql.exe)
+#   - macOS:   brew install postgresql
+#   - Linux:   sudo apt-get install postgresql-client
+#   - Verify:  psql --version
+
+# mongosh — MongoDB shell
+#   - Download: https://www.mongodb.com/try/download/shell
+#   - Verify:   mongosh --version
+
+
+# =============================================================================
+# 5. QUICK VERIFICATION
+# =============================================================================
+
+# After installing everything, verify with:
+
+#   node --version
+#   npm --version
+#   docker --version
+#   docker compose version
+#   psql --version          # optional
+#   mongosh --version       # optional
+
+# Then in the project directory:
+#   npm install
+#   cp .env.example .env
+#   docker compose up -d postgres mongo
+#   npm run dev
+#   npm test
+
+
+# =============================================================================
+# END OF REQUIREMENTS
+# =============================================================================
